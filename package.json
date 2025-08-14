@@ -1,0 +1,28 @@
+{
+  "name": "quantum-super-ai-agent",
+  "private": true,
+  "packageManager": "pnpm@9.6.0",
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ],
+  "scripts": {
+    "dev": "pnpm -r --parallel dev",
+    "build": "pnpm -r build",
+    "start": "pnpm --filter web start",
+    "lint": "pnpm -r lint",
+    "typecheck": "pnpm -r typecheck",
+    "prepare": "husky install"
+  },
+  "devDependencies": {
+    "husky": "^9.0.0",
+    "lint-staged": "^15.2.0",
+    "typescript": "5.5.4",
+    "eslint": "^9.7.0"
+  },
+  "lint-staged": {
+    "**/*.{ts,tsx,js,jsx,json,md}": [
+      "prettier --write"
+    ]
+  }
+}

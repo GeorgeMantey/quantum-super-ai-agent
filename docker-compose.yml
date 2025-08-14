@@ -1,0 +1,15 @@
+version: "3.9"
+services:
+  web:
+    build: ./apps/web
+    ports: ["3000:3000"]
+    environment:
+      - NODE_ENV=production
+      - DEFAULT_PROVIDER=${DEFAULT_PROVIDER}
+    env_file:
+      - ./.env
+  worker:
+    build: ./apps/worker
+    profiles: ["worker"]
+    env_file:
+      - ./.env
